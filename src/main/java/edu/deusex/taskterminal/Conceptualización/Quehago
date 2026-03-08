@@ -1,0 +1,21 @@
+Voy hacer una pequeña aplicacion que va a escalar a una aplicación web.
+    La aplicacion se llama TaskTerminal
+¿De qué trata?
+    - Es una aplicación que permite agregar una tarea, ver una tarea, eliminar y
+salir de la aplicación.
+¿En dónde y cómo se va a desarrollar?
+    - Se desarrolla en Java 21, esta versión inicial se desarrolla en el entorno
+de desarrollo Apache Netbeans IDE29. 
+    - Utilizará el paradigma orientado a objetos.
+    - Se intentará realizar con Clean Code y los principios Solid.
+    - Se utilizará la organización de los paquetes M.V.C
+Conceptualización:
+    Modelo (Logíca, metodos, funciones):
+        Dentro del modelo se van a crear una clase que representa.
+        Se crea una clase Tarea que representa una Tarea dentro del sistema.
+        En la version 1 se encuentra la clase AlmacenTareas para guardar cada tarea generada.
+    Controlador (une los modelo, vista y controlador):
+        Dentro del controlador esta la clase Gestion, que se encarga de eliminar, crear una tarea y mostrar todas las tareas..
+    Vista (Interfaz gráfica):
+        Se va a crear la Clase EjecutorVistaConsolaTask para la presentación en consola.
+    
