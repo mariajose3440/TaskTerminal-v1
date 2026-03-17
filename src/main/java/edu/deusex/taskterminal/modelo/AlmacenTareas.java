@@ -12,29 +12,52 @@ import java.util.ArrayList;
  */
 public class AlmacenTareas {
     
-    private Integer id = 1;
+    private Integer Id = 1;
     
     private ArrayList<Tarea> tareas;
 
     public AlmacenTareas(String cuerpo) {
         this.tareas = new ArrayList<>();
+        if (cuerpo == null || cuerpo.isBlank()) {
+        throw new IllegalArgumentException("La primera tarea no puede estar vacía");
+    }
         agregarTarea(cuerpo);
     }
 
     public Boolean agregarTarea (String cuerpo){
-        Tarea nuevaTarea = new Tarea (id, cuerpo);
-        id++;
+        if (cuerpo == null || cuerpo.isBlank()) {
+        return false;
+    }
+        Tarea nuevaTarea = new Tarea (Id, cuerpo);
+        Id++;
        tareas.add(nuevaTarea);
         return true;
     }
     
-    public Boolean eliminarporId (Integer Id){
+    public Boolean eliminarporId (Integer id){
+        if (id == null) return false;
         for (int i = 0; i< tareas.size(); i++ ){
-            if (tareas.get(i).getId().equals(Id))
+            if (tareas.get(i).getId().equals(id)){
                 tareas.remove(i);
                 return true;
+            }
         }
         return false;
+    }
+    
+    public Boolean cambiarEstado(Integer id){
+        if (id == null) return false;
+         for (int i = 0; i < tareas.size(); i++) {
+        if (tareas.get(i).getId().equals(id)) {
+            if (tareas.get(i).getEstado() == Estado.PENDIENTE) {
+                tareas.get(i).setEstado(Estado.COMPLETADO);
+            } else {
+                tareas.get(i).setEstado(Estado.PENDIENTE);
+            }
+            return true;
+        }
+    }
+    return false;
     }
 
     public ArrayList<Tarea> getTareas() {
@@ -47,7 +70,7 @@ public class AlmacenTareas {
     
     @Override
     public String toString() {
-        return "AlmacenTareas{" + "Tareas=" + tareas + '}';
+        return "Tareas=\n" + tareas + '}';
     }
     
 }

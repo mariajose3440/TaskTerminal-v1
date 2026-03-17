@@ -6,7 +6,7 @@ package edu.deusex.taskterminal.modelo;
 
 /**
  * @author NullTrace
- * Clase que representa una Tarea, tiene su numero identificatorio, cuerpo y pro defecto un estado de Pendiente
+ * Clase que representa una Tarea, tiene su numero identificatorio, cuerpo y por defecto un estado de Pendiente
  * 
  */
 
@@ -14,13 +14,13 @@ public class Tarea {
     
     private Integer id;
     
-    private String cuerpo;
+    private String descripcion;
     
     private Estado estado;
 
     public Tarea(Integer id, String cuerpo) {
         this.id = id;
-        this.cuerpo = cuerpo;
+        this.descripcion = cuerpo;
         this.estado = Estado.PENDIENTE;
     }
 
@@ -28,16 +28,12 @@ public class Tarea {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getCuerpo() {
-        return cuerpo;
+        return descripcion;
     }
 
     public void setCuerpo(String cuerpo) {
-        this.cuerpo = cuerpo;
+        this.descripcion = cuerpo;
     }
 
     public Estado getEstado() {
@@ -50,6 +46,6 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + "id=" + id + ", cuerpo=" + cuerpo + ", estado=" + estado + '}';
+        return "id=" + id + ", cuerpo=" + descripcion + ", estado=" + estado + "\n";
     }
 }
