@@ -30,6 +30,11 @@ public class EjecutorConsolaVistaTask {
         System.out.println("Gestionador de Tareas: Menú");
         System.out.println("Ingrese su primera tarea para comenzar: ");
         String primerTarea = sc.nextLine();
+        while (primerTarea == null || primerTarea.isBlank()
+                || !primerTarea.matches(".*[a-zA-ZáéíóúÁÉÍÓÚñÑ].*")) {
+            System.out.println("Tarea inválida, debe contener al menos una letra: ");
+            primerTarea = sc.nextLine();
+        }
         return primerTarea;
     }
 
@@ -37,6 +42,10 @@ public class EjecutorConsolaVistaTask {
         int option;
         mostrarMenu(gestion);
         System.out.print("Escriba la opcion a elegir: ");
+         while (!sc.hasNextInt()) {
+        System.out.println("Opción inválida, escriba un número: ");
+        sc.next(); 
+        }
         option = sc.nextInt();
         sc.nextLine(); 
         return option;
@@ -86,6 +95,10 @@ public class EjecutorConsolaVistaTask {
 
         while (continuar) {
             int var = opcion(sc, gestion);
+            if (var < 1 || var > 4) {
+                System.out.println("Opción inválida, elija entre 1 y 4");
+                continue;
+            }
             if (var == 4) {
                 System.out.println("Hasta luego!");
                 continuar = false;

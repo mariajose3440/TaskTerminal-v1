@@ -46,6 +46,6 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "id=" + id + ", cuerpo=" + descripcion + ", estado=" + estado + "\n";
+        return "id=" + id + ", descripción=" + descripcion + ", estado=" + estado + "\n";
     }
 }

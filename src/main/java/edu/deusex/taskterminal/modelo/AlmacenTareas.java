@@ -24,15 +24,15 @@ public class AlmacenTareas {
         agregarTarea(cuerpo);
     }
 
-    public Boolean agregarTarea (String cuerpo){
-        if (cuerpo == null || cuerpo.isBlank()) {
-        return false;
-    }
-        Tarea nuevaTarea = new Tarea (Id, cuerpo);
-        Id++;
-       tareas.add(nuevaTarea);
-        return true;
-    }
+    public Boolean agregarTarea(String cuerpo) {
+    if (cuerpo == null || cuerpo.isBlank()) return false;
+    if (!cuerpo.matches(".*[a-zA-ZáéíóúÁÉÍÓÚñÑ].*")) return false;
+    
+    Tarea nuevaTarea = new Tarea(Id, cuerpo);
+    Id++;
+    tareas.add(nuevaTarea);
+    return true;
+}
     
     public Boolean eliminarporId (Integer id){
         if (id == null) return false;
